@@ -1,0 +1,34 @@
+{
+  "name": "nanodraggable",
+  "version": "0.1.0",
+  "description": "Draggable nanocomponent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "budo example/index.js --live --dir example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodedninja/nanodraggable.git"
+  },
+  "keywords": [
+    "choo",
+    "drag",
+    "and",
+    "drop"
+  ],
+  "author": "kodedninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kodedninja/nanodraggable/issues"
+  },
+  "homepage": "https://github.com/kodedninja/nanodraggable#readme",
+  "dependencies": {
+    "nanocomponent": "^6.5.1",
+    "nanohtml": "^1.2.1"
+  },
+  "devDependencies": {
+    "budo": "^11.2.0",
+    "choo": "^6.10.3"
+  }
+}
