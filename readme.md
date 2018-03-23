@@ -7,7 +7,7 @@ npm i -S nanodraggable
 ```
 
 ## example
-#### Using classes
+#### Using classes (extended)
 ```javascript
 var Nanodraggable = require('nanodraggable')
 
@@ -30,7 +30,7 @@ function view (state, emit) {
 }
 ```
 
-#### ES5 way
+#### ES5 way (standalone)
 ```javascript
 var Nanodraggable = require('nanodraggable')
 
