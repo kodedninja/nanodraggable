@@ -28,4 +28,10 @@ function view (state, emit) {
 
 ## api
 #### ```draggable = Draggable(x, y, content)```
-Creates a new component. Takes ```x``` and ```y``` as default position and ```content``` a function that returns HTML template string (```bel```, ```choo/html```, ```nanohtml```).
+Creates a new component. Takes ```x``` and ```y``` as default position and ```content``` a function that returns HTML template string (```bel```, ```choo/html```, ```nanohtml```). The arguments from the `render` function are forwarded to the `content` function.
+
+#### ```draggable.mousedown(event)```
+Function to override. Called when `onmousedown`.
+
+#### ```draggable.mouseup(event)```
+Function to override. Called when `onmouseup`.

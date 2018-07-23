@@ -43,7 +43,7 @@ Nanodraggable.prototype.createElement = function (...args) {
 		t.offset_y = e.clientY - rect.top + 36 // fix this!
 
 		document.addEventListener('mousemove', move)
-		t.mousedown()
+		t.mousedown(e)
 	}
 
 	function move(e) {
@@ -62,7 +62,7 @@ Nanodraggable.prototype.createElement = function (...args) {
 	function up(e) {
 		t.moving = false
 		t.clicked = false
-		t.mouseup()
+		t.mouseup(e)
 	}
 }
 
