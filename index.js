@@ -19,7 +19,7 @@ function Nanodraggable (x, y, content) {
 
 Nanodraggable.prototype = Object.create(Nanocomponent.prototype)
 
-Nanodraggable.prototype.createElement = function () {
+Nanodraggable.prototype.createElement = function (...args) {
 	var t = this
 	return html`
 		<div
@@ -30,7 +30,7 @@ Nanodraggable.prototype.createElement = function () {
 			"
 			onmousedown="${down}" onmouseup="${up}"
 		>
-			${this.content()}
+			${this.content(...args)}
 		</div>
 	`
 
