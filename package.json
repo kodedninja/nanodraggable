@@ -1,6 +1,6 @@
 {
   "name": "nanodraggable",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Draggable nanocomponent",
   "main": "index.js",
   "scripts": {
