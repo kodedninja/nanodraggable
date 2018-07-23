@@ -25,8 +25,8 @@ Nanodraggable.prototype.createElement = function (...args) {
 		<div
 			style="
 				position: absolute;
-				top: ${this.y - this.offset_y}px;
-				left: ${this.x - this.offset_x}px;
+				top: ${this.y}px;
+				left: ${this.x}px;
 			"
 			onmousedown="${down}" onmouseup="${up}"
 		>
