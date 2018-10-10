@@ -28,7 +28,7 @@
     "nanohtml": "^1.2.1"
   },
   "devDependencies": {
-    "budo": "^11.2.0",
+    "budo": "^11.4.1",
     "choo": "^6.10.3"
   }
 }
