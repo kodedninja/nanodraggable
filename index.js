@@ -1,14 +1,12 @@
-var Nanocomponent = require('nanocomponent')
+var Component = require('nanocomponent')
 var html = require('nanohtml')
 
-function Nanodraggable (x, y, content) {
-	if (!(this instanceof Nanodraggable)) return new Nanodraggable(x, y, content)
-	Nanocomponent.call(this)
+function Nanodraggable (x, y) {
+	if (!(this instanceof Nanodraggable)) return new Nanodraggable(x, y)
+	Component.call(this)
 
 	this.x = x
 	this.y = y
-
-	this.content = content
 
 	this.offset_x = 0
 	this.offset_y = 0
@@ -17,7 +15,14 @@ function Nanodraggable (x, y, content) {
 	this.clicked = false
 }
 
-Nanodraggable.prototype = Object.create(Nanocomponent.prototype)
+Nanodraggable.prototype = Object.create(Component.prototype)
+
+// abstract functions
+Nanodraggable.prototype.content = function () {
+	return html`No content provided for Nanodraggable`
+}
+Nanodraggable.prototype.mousedown = function () {}
+Nanodraggable.prototype.mouseup = function () {}
 
 Nanodraggable.prototype.createElement = function (...args) {
 	var t = this
@@ -28,7 +33,7 @@ Nanodraggable.prototype.createElement = function (...args) {
 				top: ${this.y}px;
 				left: ${this.x}px;
 			"
-			onmousedown="${down}" onmouseup="${up}"
+			onmousedown="${down}"
 		>
 			${this.content(...args)}
 		</div>
@@ -40,9 +45,10 @@ Nanodraggable.prototype.createElement = function (...args) {
 
 		var rect = t.element.getBoundingClientRect()
 		t.offset_x = e.clientX - rect.left
-		t.offset_y = e.clientY - rect.top + 36 // fix this!
+		t.offset_y = e.clientY - rect.top
 
 		document.addEventListener('mousemove', move)
+		document.addEventListener('mouseup', up)
 		t.mousedown(e)
 	}
 
@@ -62,12 +68,9 @@ Nanodraggable.prototype.createElement = function (...args) {
 	function up(e) {
 		t.moving = false
 		t.clicked = false
+		document.addEventListener('mouseup', up)
 		t.mouseup(e)
 	}
 }
-
-// to override
-Nanodraggable.prototype.mousedown = function () {}
-Nanodraggable.prototype.mouseup = function () {}
 
 module.exports = Nanodraggable
